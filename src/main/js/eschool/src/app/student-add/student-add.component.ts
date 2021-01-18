@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import {StudentService} from "../service/student.service";
+import {Student} from "../student";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-student-add',
@@ -13,9 +16,25 @@ export class StudentAddComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   class = new FormControl('', Validators.required);
 
-  constructor() { }
+  student: Student;
+
+  constructor(private studentService: StudentService, private router: Router) {
+    this.student = new Student();
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.addStudent();
+  }
+
+  private addStudent(){
+    this.studentService.addStudent(this.student).subscribe(data => this.goToList());
+  }
+
+  goToList(){
+    window.location.reload();
   }
 
   getErrorMessage() {

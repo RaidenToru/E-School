@@ -16,14 +16,11 @@ public interface StudentRepository {
     @Select("SELECT * FROM students")
     List<Student> findAll();
 
-    @Select("SELECT * FROM students WHERE id = #id")
-    Student findById(Long id);
-
-    @Delete("DELETE FROM students WHERE id = #id")
+    @Delete("DELETE FROM students WHERE id = #{id}")
     void delete(Long id);
 
-    @Insert("INSERT INTO students (firstName, lastName, email, class) " +
-            "VALUES(#{firstName}, #{lastName}, #{email}, #{class})")
+    @Insert("INSERT INTO students (firstName, lastName, email, performance) " +
+            "VALUES(#{firstName}, #{lastName}, #{email}, #{performance})")
     void add(Student student);
 
 }

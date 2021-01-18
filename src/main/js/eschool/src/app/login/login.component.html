@@ -1,16 +1,20 @@
-<div class="form">
-  <h1 class="mat-h1">Электронная школа</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Введите ваш e-mail</mat-label>
-    <input matInput [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
+<form (ngSubmit)="login()" >
+  <div class="form">
+    <h1 class="mat-h1">Электронная школа</h1>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Введите пароль</mat-label>
-    <input matInput [formControl]="password" required>
-    <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Введите ваш e-mail</mat-label>
+      <input matInput [formControl]="email" [(ngModel)]="user_login" required>
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
 
-  <button mat-stroked-button color="primary">Войти</button>
-</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Введите пароль</mat-label>
+      <input matInput [type]="'password'" [formControl]="password" [(ngModel)]="user_password" required>
+      <mat-error *ngIf="password.invalid">{{getPassErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <button mat-stroked-button color="primary" type="submit">Войти</button>
+
+  </div>
+</form>

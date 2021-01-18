@@ -5,10 +5,10 @@ import {StudentAddComponent} from "../student-add/student-add.component";
 import {StudentService} from "../service/student.service";
 
 const ELEMENTS: Student[] = [
-  {id: 1, firstName: 'Ali', lastName: 'Baitas', birthDate: '10/10/2010', class: 10},
-  {id: 2, firstName: 'Ne', lastName: 'Li', birthDate: '10/10/2020', class: 5},
-  {id: 3, firstName: 'Ekscalibure', lastName: 'Xiungjuier', birthDate: '10/10/2020', class: 5},
-  {id: 4, firstName: 'E', lastName: 'Xung', birthDate: '10/10/2000', class: 11}
+  {id: 1, firstName: 'Ali', lastName: 'Baitas', email: 'asd@asd.asd', performance: 'Отличник'},
+  {id: 2, firstName: 'Ne', lastName: 'Li', email: 'qwe@qwe.qwe', performance: 'Хорошист'},
+  {id: 3, firstName: 'Ekscalibure', lastName: 'Xiungjuier', email: 'qweasd@qwe.asd', performance: 'Хорошист'},
+  {id: 4, firstName: 'E', lastName: 'Xung', email: '10/10/2000', performance: 'Хорошист'}
 ];
 
 @Component({
@@ -18,9 +18,14 @@ const ELEMENTS: Student[] = [
 })
 export class StudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'birthDate', 'class', 'delete'];
-  students = ELEMENTS;
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'performance', 'delete'];
+  students! : Student[];
+
   constructor(public dialog: MatDialog, private studentService: StudentService) { }
+
+  ngOnInit(): void {
+    this.getStudents();
+  }
 
   private getStudents(){
     this.studentService.getAllStudents().subscribe(data=>{
@@ -28,8 +33,11 @@ export class StudentsComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.getStudents();
+  deleteStudent(id: number){
+    this.studentService.deleteStudent(id).subscribe(data => {
+      this.getStudents();
+    });
+
   }
 
   openDialog(): void {
@@ -38,7 +46,7 @@ export class StudentsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Результат: ${result}');
+      console.log(`Результат: ${result}`);
     });
   }
 

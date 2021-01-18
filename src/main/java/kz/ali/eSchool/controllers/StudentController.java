@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class StudentController {
     @Autowired
     StudentService studentService;
@@ -19,12 +19,12 @@ public class StudentController {
         return studentService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/student/add")
     public void addStudent(@RequestBody Student student){
         studentService.addStudent(student);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/student/delete/{id}")
     public void deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
     }

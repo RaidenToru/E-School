@@ -8,12 +8,20 @@ import {Student} from "../student";
 })
 export class StudentService {
 
-  private studentsURL: string;
+  private studentURL: string;
   constructor(private httpClient: HttpClient) {
-    this.studentsURL = 'http://localhost:8000/students';
+    this.studentURL = 'http://localhost:8080/student';
   }
 
   getAllStudents(): Observable<Student[]>{
-    return this.httpClient.get<Student[]>('${this.studentsURL}');
+    return this.httpClient.get<Student[]>(`${this.studentURL}s`);
+  }
+
+  addStudent(student: Student): Observable<Object>{
+    return this.httpClient.post(`${this.studentURL}/add`, student);
+  }
+
+  deleteStudent(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.studentURL}/delete/${id}`);
   }
 }

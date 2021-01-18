@@ -11,6 +11,7 @@ import { StudentAddComponent } from './student-add/student-add.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {cdkModuleSpecifier} from "@angular/material/schematics/ng-update/typescript/module-specifiers";
 
 @NgModule({
   declarations: [

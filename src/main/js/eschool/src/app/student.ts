@@ -3,5 +3,5 @@ export class Student {
   firstName!: string;
   lastName!: string;
   email!: string;
-  performance!: number;
+  performance!: string;
 }
