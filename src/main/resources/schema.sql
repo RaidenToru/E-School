@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS students(
+    id INTEGER IDENTITY,
+    firstName VARCHAR (255) NOT NULL,
+    lastName VARCHAR (255) NOT NULL,
+    email VARCHAR (255) NOT NULL UNIQUE,
+    performance VARCHAR (255) NOT NULL
+);
