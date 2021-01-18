@@ -5,29 +5,29 @@
     <mat-form-field appearance="fill">
       <mat-label>Имя</mat-label>
       <input matInput [formControl]="firstname" [(ngModel)]="student.firstName" required>
-      <mat-error *ngIf="firstname.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="firstname.invalid">{{getFirstNameErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Фамилия</mat-label>
       <input matInput [formControl]="lastname" [(ngModel)]="student.lastName" required>
-      <mat-error *ngIf="lastname.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="lastname.invalid">{{getLastNameErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Электронная почта</mat-label>
       <input matInput [formControl]="email" [(ngModel)]="student.email"  required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Успеваемость</mat-label>
-      <mat-select [formControl]="class" [(ngModel)]="student.performance" required>
+      <mat-select [formControl]="performance" [(ngModel)]="student.performance" required>
         <mat-option value="Отличник">Отличник</mat-option>
         <mat-option value="Хорошист">Хорошист</mat-option>
         <mat-option value="Троечник">Троечник</mat-option>
       </mat-select>
-      <mat-error *ngIf="class.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="performance.invalid">{{getPerformanceErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
