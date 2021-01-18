@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="nav">
+  <div class="container">
+    <mat-toolbar-row>
+      <span class="logo">E-School</span>
+      <a routerLink="/">Студенты</a>
+      <span class="space"></span>
+      <a routerLink='/login'>Выйти</a>
+    </mat-toolbar-row>
+  </div>
+</mat-toolbar>
+
+<div class="main">
+  <div class="container">
+    <app-students></app-students>
+    <router-outlet></router-outlet>
+  </div>
+</div>

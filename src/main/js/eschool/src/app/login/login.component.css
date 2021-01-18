@@ -1,0 +1,17 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 700px ;
+}
+
+.mat-form-field{
+  width: 300px;
+  margin-top: 8px;
+}
+
+.mat-stroked-button {
+  font-size: 15px;
+  margin-top: 8px;
+}

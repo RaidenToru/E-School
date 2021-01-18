@@ -1,0 +1,14 @@
+
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 75%;
+}
+
+
+.button__end {
+  float: right;
+}
+
