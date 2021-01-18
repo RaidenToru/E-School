@@ -23,4 +23,7 @@ public interface StudentRepository {
             "VALUES(#{firstName}, #{lastName}, #{email}, #{performance})")
     void add(Student student);
 
+    @Delete("DELETE FROM students")
+    void truncateTable();
+
 }

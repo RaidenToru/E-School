@@ -8,4 +8,5 @@ public interface StudentService {
     List<Student> getAll();
     void deleteStudent(Long id);
     void addStudent(Student student);
+    void truncateTable();
 }

@@ -27,4 +27,9 @@ public class StudentServiceImpl implements StudentService {
     public void addStudent(Student student) {
         studentRepository.add(student);
     }
+
+    @Override
+    public void truncateTable() {
+        studentRepository.truncateTable();
+    }
 }
